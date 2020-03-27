@@ -1,0 +1,7 @@
+{
+  "name": "ionslidesegment",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

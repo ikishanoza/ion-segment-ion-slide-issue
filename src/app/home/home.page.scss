@@ -1,31 +1,35 @@
-#container {
-  text-align: center;
+.map{
+  height: 100%;
+}
+.map img {
+  max-height: none !important;
+}
+.maps-container-grid {
+  height: 100%;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  &>ion-row {
+    height: 100%;
+
+    ion-col {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  google-map {
+    flex: 1;
+  }
+}
+.editor {
+  width: 100%;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+
+.slides-wrapper {
+  height: 100%;
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-ion-content ion-toolbar {
-  --background: translucent;
+.swiper-slide {
+  overflow-y: scroll;    
+  display: block;    
 }

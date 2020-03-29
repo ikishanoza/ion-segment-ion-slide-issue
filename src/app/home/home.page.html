@@ -1,20 +1,62 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header>
+  <ion-toolbar color="themeSuccess">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="share"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="headers">
+      Helo 
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="themeSuccess">
+    <ion-segment class="segment-wrapper" (ionChange)="segmentChanged(segment)" [(ngModel)]="segment">
+      <ion-segment-button id="seg-1" value="0">
+        <ion-label>Location</ion-label>
+      </ion-segment-button>
+      <ion-segment-button id="seg-2" value="1">
+        <ion-label>Details</ion-label>
+      </ion-segment-button>
+      <ion-segment-button id="seg-3" value="2">
+        <ion-label>Photos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-slides class="slides-wrapper" #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+    <!--------------------------------------- MAP SLIDE ------------------------------------------>
+    <ion-slide>
+      <ion-grid class="maps-container-grid ion-no-padding">
+        <ion-row class="inputs-list">
+          <ion-col class="ion-no-padding">
+           
+            <ion-fab vertical="bottom" horizontal="end" ion-fixed>
+              <ion-button color="themeSuccess" (click)="gotoNextSlide()">Next</ion-button>
+            </ion-fab>
+            <div #Map class="map"></div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <!--------------------------------------- FORM SLIDE ------------------------------------------>
+    <ion-slide>
+      <ion-content class="forms-validations-content">
+        Slide Form
+      </ion-content>
+    </ion-slide>
+    <!--------------------------------------- IMAGE SLIDE ------------------------------------------>
+    <ion-slide>
+      <ion-content class="filters-content">
+        Slide Image
+      </ion-content>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
